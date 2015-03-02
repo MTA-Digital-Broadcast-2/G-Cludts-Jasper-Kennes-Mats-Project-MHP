@@ -1,7 +1,6 @@
 package hellotvxlet;
 
 import javax.tv.xlet.*;
-<<<<<<< HEAD:project/Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
 import org.davic.resources.ResourceClient;
 import org.davic.resources.ResourceProxy;
 import org.dvb.event.UserEvent;
@@ -25,16 +24,15 @@ import org.dvb.event.UserEventRepository;
 import org.havi.ui.HComponent;
 import org.havi.ui.HScene;
 import org.havi.ui.HSceneFactory;
+import org.havi.ui.HSceneTemplate;
+import org.havi.ui.HScreenDimension;
+import org.havi.ui.HScreenPoint;
 import org.havi.ui.event.HRcEvent;
+import java.util.Random;
 
 
-=======
->>>>>>> parent of ec88942... Project met BG:Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
 
 
-public class HelloTVXlet implements Xlet {
-
-<<<<<<< HEAD:project/Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
 public class HelloTVXlet implements Xlet, ResourceClient, HBackgroundImageListener, UserEventListener {
     
         private HScreen screen;
@@ -46,34 +44,43 @@ public class HelloTVXlet implements Xlet, ResourceClient, HBackgroundImageListen
         private Image[] arrKLetters = new Image[26];
         private Image pic;
         MijnLetterComponent mc;
-=======
->>>>>>> parent of ec88942... Project met BG:Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
+        
+
+        //Scene maken
+        HScene scene;
+        //Template Maken
+        HSceneTemplate sceneTemplate = new HSceneTemplate();
+        
+        
+        
   
     public HelloTVXlet() {
+       
+        //Grootte en positie ingeven
+        sceneTemplate.setPreference( org.havi.ui.HSceneTemplate.SCENE_SCREEN_DIMENSION, new HScreenDimension(1.0f, 1.0f), org.havi.ui.HSceneTemplate.REQUIRED);
         
+        sceneTemplate.setPreference(org.havi.ui.HSceneTemplate.SCENE_SCREEN_LOCATION,new HScreenPoint(1.0f, 1.0f) , org.havi.ui.HSceneTemplate.REQUIRED);
+        
+        //Een instantie van een Scene vragen aan de factory
+        scene = HSceneFactory.getInstance().getBestScene(sceneTemplate);
+        
+        //scene zichtbaar maken
+        scene.validate(); scene.setVisible(true);
     }
 
-<<<<<<< HEAD:project/Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
      public void destroyXlet(boolean unconditional)  {
         System.out.println("DestroyXlet");
         agrondimg.flush();
     }
 
     public void initXlet(XletContext ctx) throws XletStateChangeException {
-       /* for (int i=0; i<arrGLetters.length; i++){
-          pic = p.getToolkit();
-           
-            arrGLetters[i] = pic;
-        }*/
-        HScene scene = HSceneFactory.getInstance().getDefaultHScene();
+          scene = HSceneFactory.getInstance().getDefaultHScene();
           mc = new MijnLetterComponent();
-           scene.add(mc);
-            scene.validate();
-            scene.setVisible(true);
-            UserEventRepository uev = new UserEventRepository("mijn verzameling");
-        
-       // Letters.Test();
-        screen = HScreen.getDefaultHScreen();
+          scene.add(mc);
+          scene.validate();
+          scene.setVisible(true);
+          UserEventRepository uev = new UserEventRepository("mijn verzameling");
+          screen = HScreen.getDefaultHScreen();
       
       //HBGDevice opvragen
       bgDevice = screen.getDefaultHBackgroundDevice();
@@ -101,33 +108,55 @@ public class HelloTVXlet implements Xlet, ResourceClient, HBackgroundImageListen
           System.out.println(e.toString());
       }
       
+      //random generator
+      Random randomCreator = new Random();
+      int randomInt = randomCreator.nextInt(26);
+      System.out.println(randomInt);
+      
+      //Image lettertje = new Image(randomInt + ".png");
+      //scene.add(lettertje);
+      scene.validate();
+      
+      //HIER IS NOG WERK AAN
+      String letter = null;
+      
+      for (int i=0; i<26; i++)
+      {
+        MijnLetterComponent letters = new MijnLetterComponent(letter, 0, 0, i);
+      }
     }
     
      public class MijnLetterComponent extends HComponent{
-    
-        public class MijnTimerTask extends TimerTask {
-            
-            public void run() {
-                //timer wordt hier uitgevoerd
-                System.out.println("timer tick");
-            }
-        }
-        
-    public MijnLetterComponent(){
-       
-        this.setBounds(0,0,720,576);
-        pic = this.getToolkit().getImage("1.png");
-        //schip = this.getToolkit().getImage("spaceship.png");
-        MediaTracker mt = new MediaTracker(this);
-        mt.addImage(pic, 0);
-       
-            try {
-
-                mt.waitForAll();
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-       
+         
+         private Image bmap;
+         private MediaTracker mtrack;
+         public MijnLetterComponent()
+         {
+             
+         }
+         //Plaats en locatie instellen in de constructor
+         public MijnLetterComponent(String bitmapnaam, int x, int y, int teller)
+         {
+         bmap = this.getToolkit().getImage(bitmapnaam);
+         mtrack = new MediaTracker(this);
+         mtrack.addImage(bmap, teller);
+         
+         try
+         {
+             mtrack.waitForAll();
+         }
+         catch (Exception e)
+         {
+             System.out.println(e.toString());
+         }
+         this.setBounds(x, y, bmap.getWidth(null), bmap.getWidth(null));
+         }
+         
+         public void paint(Graphics g)
+         {
+             g.drawImage(bmap, 0, 0, null);
+         }
+         
         }
 
     
@@ -141,39 +170,6 @@ public class HelloTVXlet implements Xlet, ResourceClient, HBackgroundImageListen
         agrondimg.load((HBackgroundImageListener) this);
         //DIT IS FOUT
 
-=======
-    public void initXlet(XletContext context) {
-      
-     
->>>>>>> parent of ec88942... Project met BG:Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
-    }
-
-    public void startXlet() {
-    
-    }
-
-    public void pauseXlet() {
-     
-    }
-
-    public void destroyXlet(boolean unconditional) {
-     
-    }
-<<<<<<< HEAD:project/Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
-
-   
-    
-    
-=======
->>>>>>> parent of ec88942... Project met BG:Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
-}
-
-    public void pauseXlet() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public void startXlet() throws XletStateChangeException {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public boolean requestRelease(ResourceProxy proxy, Object requestData) {
@@ -188,14 +184,22 @@ public class HelloTVXlet implements Xlet, ResourceClient, HBackgroundImageListen
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public void imageLoaded(HBackgroundImageEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+   public void imageLoaded(HBackgroundImageEvent e)
+{
+    try {
+        bgConfiguration.displayImage(agrondimg);
     }
-
-    public void imageLoadFailed(HBackgroundImageEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    catch(Exception s){
+        System.out.println(s.toString());
     }
+}
 
+   public void imageLoadFailed(HBackgroundImageEvent e)
+{
+    System.out.println("Image kan niet geladen worden.");
+}
+   
     public void userEventReceived(UserEvent e) {
         throw new UnsupportedOperationException("Not supported yet.");
-    }}
+    }
+}
