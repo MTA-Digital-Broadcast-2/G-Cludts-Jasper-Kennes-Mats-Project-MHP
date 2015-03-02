@@ -1,7 +1,6 @@
 Signature-Version: 1.0
 Created-By: 1.6.0_16 (Sun Microsystems Inc.)
 BDJ-Signature-Version: 1.0
-<<<<<<< HEAD:project/Blu-ray_Disc_Java_LetterSpel/META-INF/SIG-BD00.SF
 SHA1-Digest-Manifest: YssYXVhcNJ4ZSi9EjU8rcNEBiTs=
 
 Name: Letters/13.png
@@ -48,12 +47,6 @@ SHA1-Digest: H+JSzISXhJI2/pyt+F603fJdTPI=
 
 Name: Mg.png
 SHA1-Digest: jj7XEmwmbdsNgB0pMsiyvRRmEGQ=
-=======
-SHA1-Digest-Manifest: WFSNWt9eNvXgMNCEpKfDf6Aqnzg=
-
-Name: hellotvxlet/HelloTVXlet.class
-SHA1-Digest: k3+sSqcNMlfrslaBGw0Hum9kbmo=
->>>>>>> parent of ec88942... Project met BG:Blu-ray_Disc_Java_LetterSpel/META-INF/SIG-BD00.SF
 
 Name: Letters/3.png
 SHA1-Digest: QjLq/9ey5QJKQ6DJ57x/SFQknEo=
@@ -61,7 +54,6 @@ SHA1-Digest: QjLq/9ey5QJKQ6DJ57x/SFQknEo=
 Name: hellotvxlet/HelloTVXlet$1.class
 SHA1-Digest: jL4rl+dtvgbj4VErj8qjkXfGCe4=
 
-<<<<<<< HEAD:project/Blu-ray_Disc_Java_LetterSpel/META-INF/SIG-BD00.SF
 Name: Letters/15.png
 SHA1-Digest: UPln3KpKlym5/4hRN29HoIJwClU=
 
@@ -256,10 +248,6 @@ SHA1-Digest: MF6mvEWl/+y/e1pEoxui8/xJXIY=
 
 Name: Sg.png
 SHA1-Digest: SVxMnqFenHgxfi/5atkS7CuRXDw=
-=======
-Name: hellotvxlet/bluray.HelloTVXlet.perm
-SHA1-Digest: 84ZO/rYCyy0JStmaLbg1GDVEFhQ=
->>>>>>> parent of ec88942... Project met BG:Blu-ray_Disc_Java_LetterSpel/META-INF/SIG-BD00.SF
 
 Name: Ug.png
 SHA1-Digest: EGZQpf5WxGYmikQlF309R06tzak=

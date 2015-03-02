@@ -1,7 +1,6 @@
 package hellotvxlet;
 
 import javax.tv.xlet.*;
-<<<<<<< HEAD:project/Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
 import org.davic.resources.ResourceClient;
 import org.davic.resources.ResourceProxy;
 import org.dvb.event.UserEvent;
@@ -28,13 +27,9 @@ import org.havi.ui.HSceneFactory;
 import org.havi.ui.event.HRcEvent;
 
 
-=======
->>>>>>> parent of ec88942... Project met BG:Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
 
 
-public class HelloTVXlet implements Xlet {
 
-<<<<<<< HEAD:project/Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
 public class HelloTVXlet implements Xlet, ResourceClient, HBackgroundImageListener, UserEventListener {
     
         private HScreen screen;
@@ -46,14 +41,11 @@ public class HelloTVXlet implements Xlet, ResourceClient, HBackgroundImageListen
         private Image[] arrKLetters = new Image[26];
         private Image pic;
         MijnLetterComponent mc;
-=======
->>>>>>> parent of ec88942... Project met BG:Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
   
     public HelloTVXlet() {
-        
+       
     }
 
-<<<<<<< HEAD:project/Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
      public void destroyXlet(boolean unconditional)  {
         System.out.println("DestroyXlet");
         agrondimg.flush();
@@ -141,31 +133,42 @@ public class HelloTVXlet implements Xlet, ResourceClient, HBackgroundImageListen
         agrondimg.load((HBackgroundImageListener) this);
         //DIT IS FOUT
 
-=======
-    public void initXlet(XletContext context) {
-      
-     
->>>>>>> parent of ec88942... Project met BG:Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
     }
 
-    public void startXlet() {
-    
+    public boolean requestRelease(ResourceProxy proxy, Object requestData) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public void pauseXlet() {
-     
+    public void release(ResourceProxy proxy) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public void destroyXlet(boolean unconditional) {
-     
+    public void notifyRelease(ResourceProxy proxy) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
-<<<<<<< HEAD:project/Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
+
+   public void imageLoaded(HBackgroundImageEvent e)
+{
+    try {
+        bgConfiguration.displayImage(agrondimg);
+    }
+    catch(Exception s){
+        System.out.println(s.toString());
+    }
+}
+
+   public void imageLoadFailed(HBackgroundImageEvent e)
+{
+    System.out.println("Image kan niet geladen worden.");
+}
+   
+    public void userEventReceived(UserEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
    
     
     
-=======
->>>>>>> parent of ec88942... Project met BG:Blu-ray_Disc_Java_LetterSpel/src/hellotvxlet/HelloTVXlet.java
 }
 
     public void pauseXlet() {
